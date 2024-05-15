@@ -1,6 +1,25 @@
+import { Button, Image } from "react-bootstrap";
+
 const HomePage = () => (
     <>
-    <h1>Welcome to JCarrollOnline</h1>
+        <div>
+            <h1>Welcome to JCarrollOnline</h1>
+        </div>
+        <div>
+            <Button>Sign up now!</Button>
+        </div>
+        <div>
+            <Image src="./doubleblueline.gif" rounded />
+        </div>
+        <div>
+            <h3>Latest Forum Posts</h3>
+        </div>
+        <div>
+        <Image src="./doubleblueline.gif" rounded />
+        </div>
+        <div>
+            <h3>Blog</h3>
+        </div>
     </>
 );
 

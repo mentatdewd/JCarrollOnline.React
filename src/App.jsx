@@ -15,6 +15,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar';
 
 import './App.css'
+import ForumPage from './pages/forumpage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/users" element={<UsersPage />} />
             <Route path="/fora" element={<ForaPage />} />
+            <Route path="/fora/:forumId" element={<ForumPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
