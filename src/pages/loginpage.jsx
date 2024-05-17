@@ -2,12 +2,22 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { useAuth } from "../components/authProvider";
 
 const LoginPage = () => {
-    // const [email, setEmail] = useState("");
-
-    // const [password, setPassword] = useState("");
-    function validateForm() {
+    const { setToken } = useAuth();
+    const navigate = useNavigate();
+  
+    const handleLogin = () => {
+      setToken("this is a test token");
+      navigate("/", { replace: true });
+    };
+  
+    setTimeout(() => {
+      handleLogin();
+    }, 120 * 1000);    function validateForm() {
         // return email.length > 0 && password.length > 0;
     }
 

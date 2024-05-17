@@ -3,10 +3,12 @@
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
-import { validateEmail } from "../utils/validate-email";
+import { validateEmail, validatePassword } from "../utils/validateEmail";
 
 const RegisterPage = () => {
     const [userName, setUserName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState({
         value: "",
@@ -23,6 +25,8 @@ const RegisterPage = () => {
         var formdata = new FormData();
         //add three variable to form
         formdata.append("userName", userName);
+        formdata.append("firstName", firstName);
+        formdata.append("lastName", lastName);
         formdata.append("emailAddress", email);
         formdata.append("password", password.value);
 
@@ -30,11 +34,12 @@ const RegisterPage = () => {
         alert("Account created!");
         clearForm();
     };
+
     const getIsFormValid = () => {
         return (
             userName &&
             validateEmail(email) &&
-            password.value.length >= 8 &&
+            validatePassword(password) &&
             confirmPassword.value === password.value
         );
     };
@@ -62,6 +67,26 @@ const RegisterPage = () => {
                             setUserName(e.target.value);
                         }}
                         placeholder="User name"
+                    />
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control
+                        value={firstName}
+                        type="text"
+                        id="firstNameText"
+                        onChange={(e) => {
+                            setFirstName(e.target.value);
+                        }}
+                        placeholder="First name"
+                    />
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                        value={lastName}
+                        type="text"
+                        id="lastNameText"
+                        onChange={(e) => {
+                            setLastName(e.target.value);
+                        }}
+                        placeholder="Last name"
                     />
                     <Form.Label>Email</Form.Label>
                     <Form.Control
