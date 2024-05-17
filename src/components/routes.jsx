@@ -1,20 +1,20 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { useAuth } from "./authprovider";
-import { ProtectedRoute } from "../components/protectedroute";
-import HomePage from "../pages/homepage";
+import { useAuth } from "./authProvider";
+import { ProtectedRoute } from "./protectedRoute";
+import HomePage from "../pages/homePage";
 import UsersPage from "../pages/usersPage";
-import ForaPage from "../pages/forapage";
-import ForumPage from "../pages/forumpage";
-import ForumThreadPage from "../pages/forumthreadpage";
-import ProfilePage from "../pages/profilepage";
-import AboutPage from "../pages/aboutpage";
-import ContactPage from "../pages/contactpage";
-import SandboxPage from "../pages/sandboxpage";
-import YellowstonePage from "../pages/yellowstonepage";
-import RegisterPage from "../pages/registerpage";
-import LoginPage from "../pages/loginpage";
-import ForgotPasswordPage from "../pages/forgotpassword";
-import NotFoundPage from "../pages/notfoundpage";
+import ForaPage from "../pages/foraPage";
+import ForumPage from "../pages/forumPage";
+import ForumThreadPage from "../pages/threadPage";
+import ProfilePage from "../pages/profilePage";
+import AboutPage from "../pages/aboutPage";
+import ContactPage from "../pages/contactPage";
+import SandboxPage from "../pages/sandboxPage";
+import YellowstonePage from "../pages/yellowstonePage";
+import RegisterPage from "../pages/registerPage";
+import LoginPage from "../pages/loginPage";
+import ForgotPasswordPage from "../pages/forgotPasswordPage";
+import NotFoundPage from "../pages/notFoundPage";
 
 const Routes = () => {
     const { token } = useAuth();

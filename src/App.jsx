@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import NavBar from './components/navbar';
 
-import './App.css'
-import AuthProvider from "./components/authprovider";
+import AuthProvider from './components/authProvider';
 import Routes from "./components/routes";
 
 function App() {
