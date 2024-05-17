@@ -1,4 +1,6 @@
-import { Button, Image } from "react-bootstrap";
+//import { Button, Image } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
 
 const HomePage = () => (
     <>

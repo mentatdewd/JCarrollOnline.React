@@ -7,25 +7,25 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 // import NotFoundPage from "./NotFoundPage";
 
-const ForumPage = () => {
-    const [forumThreads, setForumThreads] = useState([{ id: 0, title: '', description: '', threadCount: 0, lastPost: '', lastPostedDate: ''}]);
-    const [forumTitle, setForumTitle] = useState('');
-    const { forumId } = useParams();
+const ForumThreadPage = () => {
+    const [forumThreads, setForumThread] = useState([{ id: 0, title: '', description: '', threadCount: 0, lastPost: '', lastPostedDate: ''}]);
+    const [threadTitle, setThreadTitle] = useState('');
+    const { forumId, threadId } = useParams();
 
     React.useEffect(() => {
         const loadForumThreads = async () => {
-            const response = await axios.get(`http://localhost:5258/api/fora/${forumId}`);
+            const response = await axios.get(`http://localhost:5258/api/ForumThread/${forumId}/${threadId}`);
             const newFora = response.data;
 
-            setForumTitle(newFora.forumTitle);
-            setForumThreads(newFora.forums);
+            setThreadTitle(newFora.forumTitle);
+            setForumThread(newFora.forums);
         }
         loadForumThreads();
-    }, [forumId]);
+    }, [threadId]);
 
     return (
         <>
-            <h1>{forumTitle}</h1>
+            <h1>{threadTitle}</h1>
 
             <Table striped bordered hover className="custom-table">
                 <thead>
@@ -57,4 +57,4 @@ const ForumPage = () => {
     );
 };
 
-export default ForumPage;
+export default ForumThreadPage;

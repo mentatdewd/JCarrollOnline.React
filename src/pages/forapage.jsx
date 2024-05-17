@@ -32,6 +32,8 @@ const ForaPage = () => {
                     </tr>
                 </thead>
                 <tbody>
+                    {console.log("Here's the return fora")}
+                    {console.log(fora)}
                     {fora.map((item, index) => (
                         <tr key={index}>
                             <td><Link to={{
