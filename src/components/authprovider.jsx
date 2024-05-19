@@ -13,21 +13,21 @@ const AuthProvider = ({ children }) => {
   };
   const setRefreshToken = (newRefreshToken) => {
     setRefreshToken_(newRefreshToken);
-  }
+  };
 
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      window.localStorage.setItem('token',token);
+      window.localStorage.setItem('token', token);
     } else {
       delete axios.defaults.headers.common["Authorization"];
       window.localStorage.removeItem('token')
     }
-    if(refreshToken) {
+    if (refreshToken) {
       window.localStorage.setItem('refreshToken', refreshToken);
     } else {
       window.localStorage.removeItem('refreshToken');
-    } 
+    }
   }, [token, refreshToken]);
 
   // Memoized value of the authentication context

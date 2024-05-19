@@ -15,6 +15,7 @@ import RegisterPage from "../pages/registerPage";
 import LoginPage from "../pages/loginPage";
 import ForgotPasswordPage from "../pages/forgotPasswordPage";
 import NotFoundPage from "../pages/notFoundPage";
+import LogoutPage from "../pages/logoutPage";
 
 const Routes = () => {
     const { token } = useAuth();
@@ -57,7 +58,7 @@ const Routes = () => {
             path: "/forgot-password",
             element: <ForgotPasswordPage />
         },
-];
+    ];
 
     // Define routes accessible only to authenticated users
     const routesForAuthenticatedOnly = [
@@ -65,6 +66,10 @@ const Routes = () => {
             path: "/",
             element: <ProtectedRoute />, // Wrap the component in ProtectedRoute
             children: [
+                {
+                    path: "/logout",
+                    element: <LogoutPage />
+                },
                 {
                     path: "/users",
                     element: <UsersPage />

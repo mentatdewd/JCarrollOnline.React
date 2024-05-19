@@ -48,3 +48,10 @@ api.interceptors.response.use(
 
 export default api
 
+export function isLoggedIn() {
+    const token = localStorage.getItem('token');
+    if (token) {
+        return true;
+    }
+    return false;
+}
