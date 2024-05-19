@@ -6,29 +6,39 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   // State to hold the authentication token
   const [token, setToken_] = useState(localStorage.getItem("token"));
-
+  const [refreshToken, setRefreshToken_] = useState(window.localStorage.getItem("refreshToken"));
   // Function to set the authentication token
   const setToken = (newToken) => {
     setToken_(newToken);
   };
+  const setRefreshToken = (newRefreshToken) => {
+    setRefreshToken_(newRefreshToken);
+  }
 
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      localStorage.setItem('token',token);
+      window.localStorage.setItem('token',token);
     } else {
       delete axios.defaults.headers.common["Authorization"];
-      localStorage.removeItem('token')
+      window.localStorage.removeItem('token')
     }
-  }, [token]);
+    if(refreshToken) {
+      window.localStorage.setItem('refreshToken', refreshToken);
+    } else {
+      window.localStorage.removeItem('refreshToken');
+    } 
+  }, [token, refreshToken]);
 
   // Memoized value of the authentication context
   const contextValue = useMemo(
     () => ({
       token,
       setToken,
+      refreshToken,
+      setRefreshToken
     }),
-    [token]
+    [token, refreshToken]
   );
 
   // Provide the authentication context to the children components
