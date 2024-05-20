@@ -15,10 +15,10 @@ const NavBar = () => {
 
   React.useEffect(() => {
     const loadLoggedState = async () => {
-        setIsUserLoggedIn(isLoggedIn());
+      setIsUserLoggedIn(isLoggedIn());
     }
     loadLoggedState();
-}, []);
+  }, [isUserLoggedIn]);
 
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -51,15 +51,17 @@ const NavBar = () => {
             </Nav.Item>
           </Nav>
           <Nav className='ms-auto'>
-            {isUserLoggedIn ?
+            {isLoggedIn() == true && (
               <div>
                 <Nav.Item className='ml-auto'>
                   <Nav.Link href="/logout">Log out</Nav.Link>
                 </Nav.Item>
 
-              </div> :
-                <>
-              <div>
+              </div>)
+            }
+            {isLoggedIn() == false && (
+              <>
+                <div>
                   <Nav.Item className='ms-auto'>
                     <Nav.Link href="/register">Register</Nav.Link>
                   </Nav.Item>
@@ -68,9 +70,10 @@ const NavBar = () => {
                   <Nav.Item className='ml-auto'>
                     <Nav.Link href="/login">Log in</Nav.Link>
                   </Nav.Item>
-              </div>
-                </>
-              }
+                </div>
+              </>
+            )
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>
