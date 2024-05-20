@@ -36,8 +36,6 @@ const LoginPage = () => {
 
         axios.post("http://localhost:5258/api/authentication/login", formdata)
         .then((res) => handleLogin(res.data));
-
-        event.preventDefault();
     }
 
     return (

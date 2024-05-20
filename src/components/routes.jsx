@@ -5,7 +5,7 @@ import HomePage from "../pages/homePage";
 import UsersPage from "../pages/usersPage";
 import ForaPage from "../pages/foraPage";
 import ForumPage from "../pages/forumPage";
-import ForumThreadPage from "../pages/threadPage";
+import ThreadPage from "../pages/threadPage";
 import ProfilePage from "../pages/profilePage";
 import AboutPage from "../pages/aboutPage";
 import ContactPage from "../pages/contactPage";
@@ -16,6 +16,7 @@ import LoginPage from "../pages/loginPage";
 import ForgotPasswordPage from "../pages/forgotPasswordPage";
 import NotFoundPage from "../pages/notFoundPage";
 import LogoutPage from "../pages/logoutPage";
+import CreateForumPage from "../pages/createForumPage";
 
 const Routes = () => {
     const { token } = useAuth();
@@ -35,8 +36,8 @@ const Routes = () => {
             element: <ForumPage />
         },
         {
-            path: "/fora/:forumId/:threadId",
-            element: <ForumThreadPage />
+            path: "/thread/:rootThreadId",
+            element: <ThreadPage />
         },
         {
             path: "/about",
@@ -85,6 +86,10 @@ const Routes = () => {
                 {
                     path: "/yellowstone",
                     element: <YellowstonePage />
+                },
+                {
+                    path: "/create-forum",
+                    element: <CreateForumPage />,
                 },
                 {
                     path: "*",

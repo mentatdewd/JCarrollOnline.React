@@ -42,7 +42,7 @@ const ForumPage = () => {
                     {forumThreads.map((item, index) => (
                         <tr key={index}>
                             <td><Link to={{
-                                pathname: `/fora/${forumId}/${item.id}`,
+                                pathname: `/thread/${item.id}`,
                                 state: { item }
                             }}>{item.title}</Link></td>
 

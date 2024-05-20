@@ -1,15 +1,18 @@
 //import { Button, Image } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
+import { isLoggedIn } from '../components/api';
 
 const HomePage = () => (
     <>
         <div>
             <h1>Welcome to JCarrollOnline</h1>
         </div>
+        {isLoggedIn() == false && (
         <div>
             <Button>Sign up now!</Button>
-        </div>
+        </div>)
+        }
         <div>
             <Image src="./doubleblueline.gif" rounded />
         </div>
